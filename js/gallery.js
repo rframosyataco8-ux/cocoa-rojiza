@@ -1,5 +1,5 @@
 (function () {
-  const cards = Array.from(document.querySelectorAll(".card[data-src]"));
+  const cards = Array.from(document.querySelectorAll(".item[data-src]"));
   const lb = document.getElementById("lightbox");
   const lbImg = document.getElementById("lb-img");
   const lbCap = document.getElementById("lb-caption");
