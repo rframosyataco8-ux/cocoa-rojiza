@@ -1,4 +1,4 @@
-/* Evidencias — carrusel centrado, lados visibles, movimiento lento */
+/* Evidencias — un carrusel, lados visibles, movimiento lento */
 
 :root {
   --bg: #ffffff;
@@ -7,8 +7,8 @@
   --line: #e8e8ed;
   --accent: #6b3428;
   --font: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-  --card-w: 260px;
-  --card-h: 347px;
+  --card-w: 280px;
+  --card-h: 373px;
   --gap: 18px;
 }
 
@@ -196,14 +196,6 @@ body {
   color: var(--muted);
   margin-bottom: 16px;
 }
-.panel .compare {
-  width: 100%;
-  max-width: 300px;
-  border-radius: 12px;
-  border: 1px solid var(--line);
-  display: block;
-  cursor: zoom-in;
-}
 .panel .vids {
   display: flex;
   flex-direction: column;
@@ -215,6 +207,22 @@ body {
   background: #111;
   max-height: 240px;
   display: block;
+}
+
+.result-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.result-grid img {
+  width: calc(50% - 6px);
+  max-width: 200px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  display: block;
+  cursor: zoom-in;
+  object-fit: cover;
+  aspect-ratio: 3/4;
 }
 
 .footer {
@@ -263,14 +271,14 @@ body {
 
 @media (max-width: 1000px) {
   :root {
-    --card-w: 220px;
-    --card-h: 293px;
+    --card-w: 240px;
+    --card-h: 320px;
   }
 }
 @media (max-width: 700px) {
   :root {
-    --card-w: 170px;
-    --card-h: 227px;
+    --card-w: 180px;
+    --card-h: 240px;
     --gap: 12px;
   }
   .bottom {
