@@ -1,109 +1,192 @@
-/* Evidencias — limpio, blanco, sin títulos */
+/* Evidencias de laboratorio — estilo documental profesional */
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #ffffff;
+  --text: #1a1a1a;
+  --muted: #6b6b6b;
+  --line: #e6e6e6;
+  --accent: #5c2e24;
+  --surface: #f9f9f9;
+  --font: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
 
 body {
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #fff;
-  color: #222;
-  line-height: 1.4;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
 }
 
+/* —— Encabezado del documento —— */
+.doc-header {
+  border-bottom: 1px solid var(--line);
+  padding: 28px 24px 22px;
+  text-align: center;
+  background: var(--surface);
+}
+
+.doc-header .label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.doc-header h1 {
+  font-size: 1.35rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.doc-header p {
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+/* —— Contenedor —— */
 .container {
-  max-width: 1000px;
+  max-width: 980px;
   margin: 0 auto;
-  padding: 24px 16px 48px;
+  padding: 36px 20px 56px;
 }
 
-.block {
-  margin-bottom: 32px;
+/* —— Sección —— */
+.section {
+  margin-bottom: 48px;
 }
 
-.block:last-child {
+.section:last-of-type {
   margin-bottom: 0;
 }
 
-/* Grid de fotos */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 10px;
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
 }
 
-.grid-single {
-  grid-template-columns: 1fr;
-  max-width: 420px;
+.section-head h2 {
+  font-size: 0.95rem;
+  font-weight: 650;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.section-head .count {
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+/* —— Grid de evidencias —— */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+  gap: 12px;
 }
 
 .item {
   display: block;
-  border: 1px solid #e8e8e8;
-  border-radius: 4px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
   overflow: hidden;
-  background: #f7f7f7;
-  cursor: pointer;
-  transition: border-color 0.15s, box-shadow 0.15s;
+  background: #f5f5f5;
+  cursor: zoom-in;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .item:hover {
-  border-color: #999;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border-color: #b0b0b0;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.07);
 }
 
 .item img {
   width: 100%;
-  aspect-ratio: 3/4;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
   display: block;
+}
+
+/* Comparación a ancho medio */
+.grid-compare {
+  display: grid;
+  grid-template-columns: minmax(200px, 360px);
+  justify-content: start;
+}
+
+.grid-compare .item img {
+  aspect-ratio: 3 / 4;
+}
+
+/* —— Videos —— */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.video-card {
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  overflow: hidden;
+  background: #000;
+}
+
+.video-card video {
+  width: 100%;
+  display: block;
+  max-height: 340px;
   vertical-align: middle;
 }
 
-.item-wide img {
-  aspect-ratio: 3/4;
+/* —— Pie —— */
+.doc-footer {
+  border-top: 1px solid var(--line);
+  padding: 16px 20px;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--muted);
+  background: var(--surface);
 }
 
-/* Videos */
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 14px;
-}
-
-.video-grid video {
-  width: 100%;
-  border-radius: 4px;
-  border: 1px solid #e8e8e8;
-  background: #000;
-  max-height: 360px;
-}
-
-/* Lightbox */
+/* —— Lightbox —— */
 .lightbox {
   display: none;
   position: fixed;
   inset: 0;
-  z-index: 100;
-  background: rgba(0,0,0,0.92);
+  z-index: 200;
+  background: rgba(10,10,10,0.94);
   align-items: center;
   justify-content: center;
-  padding: 16px;
+  padding: 20px;
 }
 
-.lightbox.open {
-  display: flex;
-}
+.lightbox.open { display: flex; }
 
 .lightbox img {
-  max-width: min(94vw, 960px);
-  max-height: 90vh;
+  max-width: min(94vw, 1000px);
+  max-height: 88vh;
   object-fit: contain;
-  border-radius: 2px;
+  border-radius: 3px;
 }
 
 .lb-btn {
   position: absolute;
-  background: rgba(255,255,255,0.12);
-  border: none;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
   color: #fff;
   width: 44px;
   height: 44px;
@@ -111,29 +194,32 @@ body {
   display: grid;
   place-items: center;
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 1.45rem;
   line-height: 1;
+  transition: background 0.15s;
 }
 
-.lb-btn:hover {
-  background: rgba(255,255,255,0.25);
-}
+.lb-btn:hover { background: rgba(255,255,255,0.22); }
 
-.lb-close { top: 12px; right: 12px; }
-.lb-prev  { left: 10px; top: 50%; transform: translateY(-50%); }
-.lb-next  { right: 10px; top: 50%; transform: translateY(-50%); }
+.lb-close { top: 16px; right: 16px; }
+.lb-prev  { left: 14px; top: 50%; transform: translateY(-50%); }
+.lb-next  { right: 14px; top: 50%; transform: translateY(-50%); }
 
-@media (max-width: 520px) {
+/* —— Responsive —— */
+@media (max-width: 560px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 8px;
   }
-  .container {
-    padding: 16px 10px 36px;
-  }
+  .container { padding: 24px 12px 40px; }
+  .doc-header { padding: 20px 14px 16px; }
+  .doc-header h1 { font-size: 1.15rem; }
+  .section { margin-bottom: 36px; }
+  .video-grid { grid-template-columns: 1fr; }
 }
 
 @media print {
   .lightbox, .lb-btn { display: none !important; }
-  .item { break-inside: avoid; }
+  .item { break-inside: avoid; box-shadow: none; }
+  .doc-header { background: none; }
 }

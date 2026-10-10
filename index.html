@@ -3,15 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Evidencias</title>
+  <title>Evidencias · Elaboración de cocoa rojiza</title>
+  <meta name="description" content="Registro fotográfico y en video de la prueba de laboratorio — cocoa rojiza.">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-  <div class="container">
+  <header class="doc-header">
+    <div class="label">Anexo técnico</div>
+    <h1>Evidencias de laboratorio</h1>
+    <p>Elaboración de cocoa rojiza · Prueba a nivel de laboratorio</p>
+  </header>
 
-    <!-- Nibs sin tostar -->
-    <section class="block">
+  <main class="container">
+
+    <!-- ── Nibs sin tostar ── -->
+    <section class="section" id="nibs-sin-tostar">
+      <div class="section-head">
+        <h2>Nibs sin tostar</h2>
+        <span class="count">19 evidencias</span>
+      </div>
       <div class="grid">
         <a class="item" href="#" data-src="imagenes/Nibs_sin_tostar/1.0.jpeg"><img src="imagenes/Nibs_sin_tostar/1.0.jpeg" alt="" loading="lazy"></a>
         <a class="item" href="#" data-src="imagenes/Nibs_sin_tostar/1.1.jpeg"><img src="imagenes/Nibs_sin_tostar/1.1.jpeg" alt="" loading="lazy"></a>
@@ -35,8 +46,12 @@
       </div>
     </section>
 
-    <!-- Nibs tostado -->
-    <section class="block">
+    <!-- ── Nibs tostado ── -->
+    <section class="section" id="nibs-tostado">
+      <div class="section-head">
+        <h2>Nibs tostado</h2>
+        <span class="count">6 evidencias</span>
+      </div>
       <div class="grid">
         <a class="item" href="#" data-src="imagenes/nibs_tostado/2.8.jpeg"><img src="imagenes/nibs_tostado/2.8.jpeg" alt="" loading="lazy"></a>
         <a class="item" href="#" data-src="imagenes/nibs_tostado/2.9.jpeg"><img src="imagenes/nibs_tostado/2.9.jpeg" alt="" loading="lazy"></a>
@@ -47,29 +62,45 @@
       </div>
     </section>
 
-    <!-- Comparación -->
-    <section class="block">
-      <div class="grid grid-single">
-        <a class="item item-wide" href="#" data-src="imagenes/3.4.png"><img src="imagenes/3.4.png" alt="" loading="lazy"></a>
+    <!-- ── Comparación ── -->
+    <section class="section" id="comparacion">
+      <div class="section-head">
+        <h2>Comparación de coloración</h2>
+        <span class="count">1 evidencia</span>
+      </div>
+      <div class="grid-compare">
+        <a class="item" href="#" data-src="imagenes/3.4.png"><img src="imagenes/3.4.png" alt="" loading="lazy"></a>
       </div>
     </section>
 
-    <!-- Videos -->
-    <section class="block videos">
+    <!-- ── Videos ── -->
+    <section class="section" id="videos">
+      <div class="section-head">
+        <h2>Registro en video</h2>
+        <span class="count">2 videos</span>
+      </div>
       <div class="video-grid">
-        <video controls preload="metadata" playsinline>
-          <source src="videos/video_1.0.mp4" type="video/mp4">
-        </video>
-        <video controls preload="metadata" playsinline>
-          <source src="videos/video_1.1.mp4" type="video/mp4">
-        </video>
+        <div class="video-card">
+          <video controls preload="metadata" playsinline>
+            <source src="videos/video_1.0.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-card">
+          <video controls preload="metadata" playsinline>
+            <source src="videos/video_1.1.mp4" type="video/mp4">
+          </video>
+        </div>
       </div>
     </section>
 
-  </div>
+  </main>
+
+  <footer class="doc-footer">
+    Registro de evidencias · Prueba de laboratorio · Cocoa rojiza
+  </footer>
 
   <!-- Lightbox -->
-  <div id="lightbox" class="lightbox">
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Visor de evidencia">
     <button id="lb-close" class="lb-btn lb-close" aria-label="Cerrar">×</button>
     <button id="lb-prev" class="lb-btn lb-prev" aria-label="Anterior">‹</button>
     <button id="lb-next" class="lb-btn lb-next" aria-label="Siguiente">›</button>
