@@ -1,17 +1,16 @@
-/* Evidencias de laboratorio — estilo documental profesional */
+/* Evidencias — documental profesional + carrusel dinámico */
 
 :root {
   --bg: #ffffff;
   --text: #1a1a1a;
   --muted: #6b6b6b;
-  --line: #e6e6e6;
+  --line: #e5e5e5;
   --accent: #5c2e24;
-  --surface: #f9f9f9;
+  --surface: #f8f8f8;
   --font: "Segoe UI", system-ui, -apple-system, sans-serif;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 html { scroll-behavior: smooth; }
 
 body {
@@ -23,170 +22,246 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* —— Encabezado del documento —— */
+/* Header */
 .doc-header {
   border-bottom: 1px solid var(--line);
-  padding: 28px 24px 22px;
+  padding: 26px 24px 20px;
   text-align: center;
   background: var(--surface);
 }
-
 .doc-header .label {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent);
   margin-bottom: 8px;
 }
-
 .doc-header h1 {
-  font-size: 1.35rem;
+  font-size: 1.32rem;
   font-weight: 650;
   letter-spacing: -0.02em;
-  color: var(--text);
   margin-bottom: 4px;
 }
-
 .doc-header p {
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   color: var(--muted);
 }
 
-/* —— Contenedor —— */
 .container {
-  max-width: 980px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 36px 20px 56px;
+  padding: 32px 20px 56px;
 }
 
-/* —— Sección —— */
+/* Section */
 .section {
-  margin-bottom: 48px;
+  margin-bottom: 44px;
 }
-
-.section:last-of-type {
-  margin-bottom: 0;
-}
+.section:last-of-type { margin-bottom: 0; }
 
 .section-head {
   display: flex;
-  align-items: baseline;
+  align-items: center;
+  justify-content: space-between;
   gap: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   padding-bottom: 10px;
   border-bottom: 1px solid var(--line);
+  flex-wrap: wrap;
 }
-
 .section-head h2 {
   font-size: 0.95rem;
   font-weight: 650;
-  color: var(--text);
   letter-spacing: -0.01em;
 }
-
-.section-head .count {
+.section-head .meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
   font-size: 0.75rem;
   color: var(--muted);
-  font-weight: 400;
 }
 
-/* —— Grid de evidencias —— */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
-  gap: 12px;
-}
-
-.item {
-  display: block;
+/* Carousel */
+.carousel {
+  position: relative;
+  overflow: hidden;
   border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.85s cubic-bezier(0.25, 0.1, 0.25, 1);
+  will-change: transform;
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: #fff;
+  cursor: zoom-in;
+}
+
+.carousel-slide img {
+  max-width: 100%;
+  max-height: 420px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 4px;
+  display: block;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+}
+
+/* Multi-thumb strip under main (desktop) */
+.thumbs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 12px 12px 14px;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+}
+.thumbs::-webkit-scrollbar { height: 4px; }
+.thumbs::-webkit-scrollbar-thumb { background: #ccc; border-radius: 2px; }
+
+.thumb {
+  flex: 0 0 72px;
+  height: 72px;
+  border: 2px solid transparent;
   border-radius: 5px;
   overflow: hidden;
-  background: #f5f5f5;
-  cursor: zoom-in;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity 0.2s, border-color 0.2s;
+  background: #eee;
 }
-
-.item:hover {
-  border-color: #b0b0b0;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+.thumb.active {
+  opacity: 1;
+  border-color: var(--accent);
 }
-
-.item img {
+.thumb:hover { opacity: 0.9; }
+.thumb img {
   width: 100%;
-  aspect-ratio: 3 / 4;
+  height: 100%;
   object-fit: cover;
   display: block;
 }
 
-/* Comparación a ancho medio */
-.grid-compare {
+/* Nav arrows */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.92);
+  color: var(--text);
+  font-size: 1.3rem;
+  cursor: pointer;
   display: grid;
-  grid-template-columns: minmax(200px, 360px);
-  justify-content: start;
+  place-items: center;
+  transition: background 0.15s, box-shadow 0.15s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.carousel-btn:hover {
+  background: #fff;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+}
+.carousel-btn.prev { left: 10px; }
+.carousel-btn.next { right: 10px; }
+
+/* Progress bar (slow auto-advance) */
+.progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: var(--accent);
+  width: 0%;
+  z-index: 4;
+  transition: none;
+}
+.progress.running {
+  transition: width linear;
 }
 
-.grid-compare .item img {
-  aspect-ratio: 3 / 4;
+/* Compare single */
+.compare-wrap {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  max-width: 400px;
+}
+.compare-wrap img {
+  width: 100%;
+  display: block;
+  cursor: zoom-in;
 }
 
-/* —— Videos —— */
+/* Videos */
 .video-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 16px;
+  gap: 14px;
 }
-
 .video-card {
   border: 1px solid var(--line);
-  border-radius: 5px;
+  border-radius: 8px;
   overflow: hidden;
   background: #000;
 }
-
 .video-card video {
   width: 100%;
   display: block;
   max-height: 340px;
-  vertical-align: middle;
 }
 
-/* —— Pie —— */
+/* Footer */
 .doc-footer {
   border-top: 1px solid var(--line);
-  padding: 16px 20px;
+  padding: 14px 20px;
   text-align: center;
-  font-size: 0.75rem;
+  font-size: 0.74rem;
   color: var(--muted);
   background: var(--surface);
 }
 
-/* —— Lightbox —— */
+/* Lightbox */
 .lightbox {
   display: none;
   position: fixed;
   inset: 0;
-  z-index: 200;
-  background: rgba(10,10,10,0.94);
+  z-index: 300;
+  background: rgba(8,8,8,0.95);
   align-items: center;
   justify-content: center;
   padding: 20px;
 }
-
 .lightbox.open { display: flex; }
-
 .lightbox img {
-  max-width: min(94vw, 1000px);
-  max-height: 88vh;
+  max-width: min(94vw, 1050px);
+  max-height: 90vh;
   object-fit: contain;
   border-radius: 3px;
 }
-
 .lb-btn {
   position: absolute;
   background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.12);
   color: #fff;
   width: 44px;
   height: 44px;
@@ -196,30 +271,24 @@ body {
   cursor: pointer;
   font-size: 1.45rem;
   line-height: 1;
-  transition: background 0.15s;
 }
-
 .lb-btn:hover { background: rgba(255,255,255,0.22); }
+.lb-close { top: 14px; right: 14px; }
+.lb-prev  { left: 12px; top: 50%; transform: translateY(-50%); }
+.lb-next  { right: 12px; top: 50%; transform: translateY(-50%); }
 
-.lb-close { top: 16px; right: 16px; }
-.lb-prev  { left: 14px; top: 50%; transform: translateY(-50%); }
-.lb-next  { right: 14px; top: 50%; transform: translateY(-50%); }
-
-/* —— Responsive —— */
-@media (max-width: 560px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-  }
-  .container { padding: 24px 12px 40px; }
-  .doc-header { padding: 20px 14px 16px; }
+@media (max-width: 640px) {
+  .carousel-slide { padding: 10px; }
+  .carousel-slide img { max-height: 320px; }
+  .thumb { flex: 0 0 58px; height: 58px; }
+  .carousel-btn { width: 34px; height: 34px; font-size: 1.1rem; }
+  .container { padding: 22px 12px 40px; }
+  .doc-header { padding: 18px 14px 14px; }
   .doc-header h1 { font-size: 1.15rem; }
-  .section { margin-bottom: 36px; }
-  .video-grid { grid-template-columns: 1fr; }
 }
 
 @media print {
-  .lightbox, .lb-btn { display: none !important; }
-  .item { break-inside: avoid; box-shadow: none; }
-  .doc-header { background: none; }
+  .lightbox, .lb-btn, .carousel-btn, .progress { display: none !important; }
+  .carousel-track { transform: none !important; flex-wrap: wrap; }
+  .carousel-slide { flex: 0 0 50%; }
 }
