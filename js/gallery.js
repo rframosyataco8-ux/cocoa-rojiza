@@ -1,57 +1,71 @@
 (function () {
-  /* ── Slideshows ── */
-  document.querySelectorAll(".slideshow").forEach(initSS);
+  document.querySelectorAll(".carousel").forEach(initCarousel);
 
-  function initSS(root) {
-    const slides = Array.from(root.querySelectorAll(".slide"));
-    const progress = root.querySelector(".ss-progress");
-    const curEl = root.querySelector(".ss-count .cur");
-    const btnPrev = root.querySelector(".ss-prev");
-    const btnNext = root.querySelector(".ss-next");
-    const interval = parseInt(root.dataset.interval, 10) || 4000;
+  function initCarousel(root) {
+    const track = root.querySelector(".carousel-track");
+    const items = Array.from(root.querySelectorAll(".carousel-item"));
+    const btnPrev = root.querySelector(".carousel-btn.prev");
+    const btnNext = root.querySelector(".carousel-btn.next");
+    const section = root.closest(".section");
+    const curEl = section.querySelector(".carousel-count .cur");
+    const bar = section.querySelector(".carousel-progress span");
+    const interval = parseInt(root.dataset.interval, 10) || 3800;
+    const n = items.length;
     let index = 0;
     let timer = null;
     let paused = false;
+    let itemW = 0;
 
-    function show(i) {
-      index = (i + slides.length) % slides.length;
-      slides.forEach((s, si) => s.classList.toggle("active", si === index));
+    function measure() {
+      if (!items[0]) return;
+      const style = getComputedStyle(track);
+      const gap = parseFloat(style.gap) || 16;
+      itemW = items[0].offsetWidth + gap;
+    }
+
+    function goTo(i, user) {
+      index = ((i % n) + n) % n;
+      measure();
+      track.style.transform = `translateX(calc(-${index * itemW}px))`;
+      items.forEach((el, ei) => el.classList.toggle("active", ei === index));
       if (curEl) curEl.textContent = index + 1;
-      resetBar();
+      resetBar(user);
     }
 
-    function resetBar() {
+    function resetBar(user) {
       clearTimeout(timer);
-      progress.style.transition = "none";
-      progress.style.width = "0%";
+      if (!bar) return;
+      bar.style.transition = "none";
+      bar.style.width = "0%";
       if (paused) return;
-      void progress.offsetWidth;
-      progress.style.transition = "width " + interval + "ms linear";
-      progress.style.width = "100%";
-      timer = setTimeout(() => show(index + 1), interval);
+      void bar.offsetWidth;
+      bar.style.transition = "width " + interval + "ms linear";
+      bar.style.width = "100%";
+      timer = setTimeout(() => goTo(index + 1), interval);
     }
 
-    btnNext.addEventListener("click", (e) => { e.stopPropagation(); show(index + 1); });
-    btnPrev.addEventListener("click", (e) => { e.stopPropagation(); show(index - 1); });
+    btnNext.addEventListener("click", () => goTo(index + 1, true));
+    btnPrev.addEventListener("click", () => goTo(index - 1, true));
 
     root.addEventListener("mouseenter", () => {
       paused = true;
       clearTimeout(timer);
-      progress.style.transition = "none";
+      if (bar) { bar.style.transition = "none"; }
     });
     root.addEventListener("mouseleave", () => {
       paused = false;
       resetBar();
     });
 
-    slides.forEach((s, i) => {
-      s.addEventListener("click", () => openLb(slides.map(x => x.dataset.src), i));
+    items.forEach((el, i) => {
+      el.addEventListener("click", () => openLb(items.map(x => x.dataset.src), i));
     });
 
-    show(0);
+    window.addEventListener("resize", () => goTo(index, true));
+    requestAnimationFrame(() => goTo(0));
   }
 
-  /* ── Lightbox ── */
+  /* Lightbox */
   const lb = document.getElementById("lightbox");
   const lbImg = document.getElementById("lb-img");
   let lbSrcs = [];
@@ -64,13 +78,11 @@
     lb.classList.add("open");
     document.body.style.overflow = "hidden";
   }
-
   function closeLb() {
     lb.classList.remove("open");
     document.body.style.overflow = "";
     lbImg.src = "";
   }
-
   function lbGo(d) {
     lbIdx = (lbIdx + d + lbSrcs.length) % lbSrcs.length;
     lbImg.src = lbSrcs[lbIdx];
@@ -80,7 +92,6 @@
   document.getElementById("lb-prev").addEventListener("click", () => lbGo(-1));
   document.getElementById("lb-next").addEventListener("click", () => lbGo(1));
   lb.addEventListener("click", (e) => { if (e.target === lb) closeLb(); });
-
   document.addEventListener("keydown", (e) => {
     if (!lb.classList.contains("open")) return;
     if (e.key === "Escape") closeLb();
