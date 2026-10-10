@@ -17,71 +17,90 @@
 
   <main class="container">
 
-    <!-- Nibs sin tostar -->
+    <!-- Nibs sin tostar — una sola fila en movimiento -->
     <section class="section" id="nibs-sin-tostar">
       <div class="section-head">
         <h2>Nibs sin tostar</h2>
-        <div class="meta"><span>19 evidencias</span><span class="auto-hint">avance automático</span></div>
+        <span class="count">19 evidencias</span>
       </div>
-      <div class="carousel" data-interval="4500">
-        <div class="carousel-track">
-          <div class="carousel-slide" data-src="imagenes/Nibs_sin_tostar/1.0.jpeg"><img src="imagenes/Nibs_sin_tostar/1.0.jpeg" alt="" loading="eager"></div>
-          <div class="carousel-slide" data-src="imagenes/Nibs_sin_tostar/1.1.jpeg"><img src="imagenes/Nibs_sin_tostar/1.1.jpeg" alt="" loading="lazy"></div>
-          <div class="carousel-slide" data-src="imagenes/Nibs_sin_tostar/1.2.jpeg"><img src="imagenes/Nibs_sin_tostar/1.2.jpeg" alt="" loading="lazy"></div>
-          <div class="carousel-slide" data-src="imagenes/Nibs_sin_tostar/1.3.jpeg"><img src="imagenes/Nibs_sin_tostar/1.3.jpeg" alt="" loading="lazy"></div>
-          <div class="carousel-slide" data-src="imagenes/Nibs_sin_tostar/1.4.jpeg"><img src="imagenes/Nibs_sin_tostar/1.4.jpeg" alt="" loading="lazy"></div>
-          <div class="carousel-slide" data-src="imagenes/Nibs_sin_tostar/1.5.jpeg"><img src="imagenes/Nibs_sin_tostar/1.5.jpeg" alt="" loading="lazy"></div>
-          <div class="carousel-slide" data-src="imagenes/Nibs_sin_tostar/1.6.jpeg"><img src="imagenes/Nibs_sin_tostar/1.6.jpeg" alt="" loading="lazy"></div>
-          <div class="carousel-slide" data-src="imagenes/Nibs_sin_tostar/1.7.jpeg"><img src="imagenes/Nibs_sin_tostar/1.7.jpeg" alt="" loading="lazy"></div>
-          <div class="carousel-slide" data-src="imagenes/Nibs_sin_tostar/1.8.jpeg"><img src="imagenes/Nibs_sin_tostar/1.8.jpeg" alt="" loading="lazy"></div>
-          <div class="carousel-slide" data-src="imagenes/Nibs_sin_tostar/1.9.jpeg"><img src="imagenes/Nibs_sin_tostar/1.9.jpeg" alt="" loading="lazy"></div>
-          <div class="carousel-slide" data-src="imagenes/Nibs_sin_tostar/1.10.jpeg"><img src="imagenes/Nibs_sin_tostar/1.10.jpeg" alt="" loading="lazy"></div>
-          <div class="carousel-slide" data-src="imagenes/Nibs_sin_tostar/2.0.jpeg"><img src="imagenes/Nibs_sin_tostar/2.0.jpeg" alt="" loading="lazy"></div>
-          <div class="carousel-slide" data-src="imagenes/Nibs_sin_tostar/2.1.jpeg"><img src="imagenes/Nibs_sin_tostar/2.1.jpeg" alt="" loading="lazy"></div>
-          <div class="carousel-slide" data-src="imagenes/Nibs_sin_tostar/2.2.jpeg"><img src="imagenes/Nibs_sin_tostar/2.2.jpeg" alt="" loading="lazy"></div>
-          <div class="carousel-slide" data-src="imagenes/Nibs_sin_tostar/2.3.jpeg"><img src="imagenes/Nibs_sin_tostar/2.3.jpeg" alt="" loading="lazy"></div>
-          <div class="carousel-slide" data-src="imagenes/Nibs_sin_tostar/2.4.jpeg"><img src="imagenes/Nibs_sin_tostar/2.4.jpeg" alt="" loading="lazy"></div>
-          <div class="carousel-slide" data-src="imagenes/Nibs_sin_tostar/2.5.jpeg"><img src="imagenes/Nibs_sin_tostar/2.5.jpeg" alt="" loading="lazy"></div>
-          <div class="carousel-slide" data-src="imagenes/Nibs_sin_tostar/2.6.jpeg"><img src="imagenes/Nibs_sin_tostar/2.6.jpeg" alt="" loading="lazy"></div>
-          <div class="carousel-slide" data-src="imagenes/Nibs_sin_tostar/2.7.jpeg"><img src="imagenes/Nibs_sin_tostar/2.7.jpeg" alt="" loading="lazy"></div>
+      <div class="marquee" style="--duration: 90s">
+        <div class="marquee-track" id="track-sin">
+          <!-- set A -->
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/1.0.jpeg"><img src="imagenes/Nibs_sin_tostar/1.0.jpeg" alt="" loading="eager"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/1.1.jpeg"><img src="imagenes/Nibs_sin_tostar/1.1.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/1.2.jpeg"><img src="imagenes/Nibs_sin_tostar/1.2.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/1.3.jpeg"><img src="imagenes/Nibs_sin_tostar/1.3.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/1.4.jpeg"><img src="imagenes/Nibs_sin_tostar/1.4.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/1.5.jpeg"><img src="imagenes/Nibs_sin_tostar/1.5.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/1.6.jpeg"><img src="imagenes/Nibs_sin_tostar/1.6.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/1.7.jpeg"><img src="imagenes/Nibs_sin_tostar/1.7.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/1.8.jpeg"><img src="imagenes/Nibs_sin_tostar/1.8.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/1.9.jpeg"><img src="imagenes/Nibs_sin_tostar/1.9.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/1.10.jpeg"><img src="imagenes/Nibs_sin_tostar/1.10.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/2.0.jpeg"><img src="imagenes/Nibs_sin_tostar/2.0.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/2.1.jpeg"><img src="imagenes/Nibs_sin_tostar/2.1.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/2.2.jpeg"><img src="imagenes/Nibs_sin_tostar/2.2.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/2.3.jpeg"><img src="imagenes/Nibs_sin_tostar/2.3.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/2.4.jpeg"><img src="imagenes/Nibs_sin_tostar/2.4.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/2.5.jpeg"><img src="imagenes/Nibs_sin_tostar/2.5.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/2.6.jpeg"><img src="imagenes/Nibs_sin_tostar/2.6.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/2.7.jpeg"><img src="imagenes/Nibs_sin_tostar/2.7.jpeg" alt="" loading="lazy"></div>
+          <!-- set B (duplicado para loop infinito) -->
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/1.0.jpeg"><img src="imagenes/Nibs_sin_tostar/1.0.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/1.1.jpeg"><img src="imagenes/Nibs_sin_tostar/1.1.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/1.2.jpeg"><img src="imagenes/Nibs_sin_tostar/1.2.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/1.3.jpeg"><img src="imagenes/Nibs_sin_tostar/1.3.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/1.4.jpeg"><img src="imagenes/Nibs_sin_tostar/1.4.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/1.5.jpeg"><img src="imagenes/Nibs_sin_tostar/1.5.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/1.6.jpeg"><img src="imagenes/Nibs_sin_tostar/1.6.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/1.7.jpeg"><img src="imagenes/Nibs_sin_tostar/1.7.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/1.8.jpeg"><img src="imagenes/Nibs_sin_tostar/1.8.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/1.9.jpeg"><img src="imagenes/Nibs_sin_tostar/1.9.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/1.10.jpeg"><img src="imagenes/Nibs_sin_tostar/1.10.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/2.0.jpeg"><img src="imagenes/Nibs_sin_tostar/2.0.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/2.1.jpeg"><img src="imagenes/Nibs_sin_tostar/2.1.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/2.2.jpeg"><img src="imagenes/Nibs_sin_tostar/2.2.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/2.3.jpeg"><img src="imagenes/Nibs_sin_tostar/2.3.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/2.4.jpeg"><img src="imagenes/Nibs_sin_tostar/2.4.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/2.5.jpeg"><img src="imagenes/Nibs_sin_tostar/2.5.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/2.6.jpeg"><img src="imagenes/Nibs_sin_tostar/2.6.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/Nibs_sin_tostar/2.7.jpeg"><img src="imagenes/Nibs_sin_tostar/2.7.jpeg" alt="" loading="lazy"></div>
         </div>
-        <button class="carousel-btn prev" aria-label="Anterior">‹</button>
-        <button class="carousel-btn next" aria-label="Siguiente">›</button>
-        <div class="progress"></div>
-        <div class="thumbs"></div>
       </div>
     </section>
 
-    <!-- Nibs tostado -->
+    <!-- Nibs tostado — una sola fila -->
     <section class="section" id="nibs-tostado">
       <div class="section-head">
         <h2>Nibs tostado</h2>
-        <div class="meta"><span>6 evidencias</span><span class="auto-hint">avance automático</span></div>
+        <span class="count">6 evidencias</span>
       </div>
-      <div class="carousel" data-interval="4500">
-        <div class="carousel-track">
-          <div class="carousel-slide" data-src="imagenes/nibs_tostado/2.8.jpeg"><img src="imagenes/nibs_tostado/2.8.jpeg" alt="" loading="lazy"></div>
-          <div class="carousel-slide" data-src="imagenes/nibs_tostado/2.9.jpeg"><img src="imagenes/nibs_tostado/2.9.jpeg" alt="" loading="lazy"></div>
-          <div class="carousel-slide" data-src="imagenes/nibs_tostado/3.0.jpeg"><img src="imagenes/nibs_tostado/3.0.jpeg" alt="" loading="lazy"></div>
-          <div class="carousel-slide" data-src="imagenes/nibs_tostado/3.1.jpeg"><img src="imagenes/nibs_tostado/3.1.jpeg" alt="" loading="lazy"></div>
-          <div class="carousel-slide" data-src="imagenes/nibs_tostado/3.2.jpeg"><img src="imagenes/nibs_tostado/3.2.jpeg" alt="" loading="lazy"></div>
-          <div class="carousel-slide" data-src="imagenes/nibs_tostado/3.3.jpeg"><img src="imagenes/nibs_tostado/3.3.jpeg" alt="" loading="lazy"></div>
+      <div class="marquee" style="--duration: 45s">
+        <div class="marquee-track">
+          <div class="marquee-item" data-src="imagenes/nibs_tostado/2.8.jpeg"><img src="imagenes/nibs_tostado/2.8.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/nibs_tostado/2.9.jpeg"><img src="imagenes/nibs_tostado/2.9.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/nibs_tostado/3.0.jpeg"><img src="imagenes/nibs_tostado/3.0.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/nibs_tostado/3.1.jpeg"><img src="imagenes/nibs_tostado/3.1.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/nibs_tostado/3.2.jpeg"><img src="imagenes/nibs_tostado/3.2.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/nibs_tostado/3.3.jpeg"><img src="imagenes/nibs_tostado/3.3.jpeg" alt="" loading="lazy"></div>
+          <!-- duplicado -->
+          <div class="marquee-item" data-src="imagenes/nibs_tostado/2.8.jpeg"><img src="imagenes/nibs_tostado/2.8.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/nibs_tostado/2.9.jpeg"><img src="imagenes/nibs_tostado/2.9.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/nibs_tostado/3.0.jpeg"><img src="imagenes/nibs_tostado/3.0.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/nibs_tostado/3.1.jpeg"><img src="imagenes/nibs_tostado/3.1.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/nibs_tostado/3.2.jpeg"><img src="imagenes/nibs_tostado/3.2.jpeg" alt="" loading="lazy"></div>
+          <div class="marquee-item" data-src="imagenes/nibs_tostado/3.3.jpeg"><img src="imagenes/nibs_tostado/3.3.jpeg" alt="" loading="lazy"></div>
         </div>
-        <button class="carousel-btn prev" aria-label="Anterior">‹</button>
-        <button class="carousel-btn next" aria-label="Siguiente">›</button>
-        <div class="progress"></div>
-        <div class="thumbs"></div>
       </div>
     </section>
 
     <!-- Comparación -->
-    <section class="section" id="comparacion">
+    <section class="section compare-section" id="comparacion">
       <div class="section-head">
         <h2>Comparación de coloración</h2>
-        <div class="meta"><span>1 evidencia</span></div>
       </div>
       <div class="compare-wrap">
-        <img src="imagenes/3.4.png" alt="" data-src="imagenes/3.4.png" class="lightbox-trigger" loading="lazy">
+        <img src="imagenes/3.4.png" alt="" data-src="imagenes/3.4.png" class="lb-src" loading="lazy">
       </div>
     </section>
 
@@ -89,9 +108,9 @@
     <section class="section" id="videos">
       <div class="section-head">
         <h2>Registro en video</h2>
-        <div class="meta"><span>2 videos</span></div>
+        <span class="count">2 videos</span>
       </div>
-      <div class="video-grid">
+      <div class="videos-inner">
         <div class="video-card">
           <video controls preload="metadata" playsinline>
             <source src="videos/video_1.0.mp4" type="video/mp4">
@@ -111,7 +130,6 @@
     Registro de evidencias · Prueba de laboratorio · Cocoa rojiza
   </footer>
 
-  <!-- Lightbox global -->
   <div id="lightbox" class="lightbox" role="dialog" aria-modal="true">
     <button id="lb-close" class="lb-btn lb-close" aria-label="Cerrar">×</button>
     <button id="lb-prev" class="lb-btn lb-prev" aria-label="Anterior">‹</button>
