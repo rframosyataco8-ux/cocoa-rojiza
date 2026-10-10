@@ -172,59 +172,6 @@ body {
   background: var(--accent);
 }
 
-.bottom {
-  display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 28px;
-  padding: 0 32px;
-}
-
-.panel {
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.03);
-}
-.panel h3 {
-  font-size: 0.95rem;
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-.panel .meta {
-  font-size: 0.78rem;
-  color: var(--muted);
-  margin-bottom: 16px;
-}
-.panel .vids {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-.panel .vids video {
-  width: 100%;
-  border-radius: 12px;
-  background: #111;
-  max-height: 240px;
-  display: block;
-}
-
-.result-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-.result-grid img {
-  width: calc(50% - 6px);
-  max-width: 200px;
-  border-radius: 10px;
-  border: 1px solid var(--line);
-  display: block;
-  cursor: zoom-in;
-  object-fit: cover;
-  aspect-ratio: 3/4;
-}
-
 .footer {
   text-align: center;
   padding: 24px;
@@ -281,10 +228,6 @@ body {
     --card-h: 240px;
     --gap: 12px;
   }
-  .bottom {
-    grid-template-columns: 1fr;
-    padding: 0 16px;
-  }
   .carousel-btn.prev { left: 6px; }
   .carousel-btn.next { right: 6px; }
   .header { padding: 36px 16px 28px; }
@@ -294,4 +237,49 @@ body {
   .lightbox, .lb-btn, .carousel-btn, .carousel-progress { display: none !important; }
   .carousel-track { transform: none !important; flex-wrap: wrap; justify-content: center; }
   .carousel-item { opacity: 1 !important; transform: none !important; }
+}
+
+/* Bloque comparación: videos arriba, imágenes abajo */
+.compare-block {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+.block-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 8px 0 12px;
+}
+.vids-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.vids-row video {
+  width: 100%;
+  border-radius: 12px;
+  background: #111;
+  display: block;
+  max-height: 280px;
+}
+.compare-block .result-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.compare-block .result-grid img {
+  width: 100%;
+  max-width: none;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  cursor: zoom-in;
+  display: block;
+}
+@media (max-width: 700px) {
+  .vids-row { grid-template-columns: 1fr; }
+  .compare-block .result-grid { grid-template-columns: repeat(2, 1fr); }
 }
